@@ -1,24 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>360</width>
+    <height>401</height>
    </rect>
   </property>
-  <property name="windowTitle" >
-   <string>MainWindow</string>
+  <property name="windowTitle">
+   <string>Tourney Keeper</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QComboBox" name="comboboxTourneyPicker">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>231</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+    <item>
+     <property name="text">
+      <string>Select tournament from here</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tournament</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>20</y>
+      <width>251</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonOpenTourney">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>50</y>
+      <width>98</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Open</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonNewTournament">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>New Tournament</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="playersLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>66</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Players</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="prefrencesLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Preferences</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>160</y>
+      <width>281</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>260</y>
+      <width>251</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonNewPlayer">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>190</y>
+      <width>131</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>New Player</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonManagePlayers">
+    <property name="geometry">
+     <rect>
+      <x>207</x>
+      <y>190</y>
+      <width>131</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Manage Players</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonTournamentSettings">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>290</y>
+      <width>151</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tournament Settings</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonApplicationSettings">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>290</y>
+      <width>151</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Application Settings</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>360</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>true</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
 </ui>

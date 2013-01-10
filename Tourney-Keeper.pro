@@ -12,12 +12,12 @@ TARGET = Tourney-Keeper
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
-    startview.cpp
+SOURCES += UI/main.cpp\
+    UI/mainwindow.cpp \
+    UI/startview.cpp \
+    UI/tournamentselector.cpp
 
-HEADERS  += mainwindow.h \
-    startview.h
+HEADERS  += UI/mainwindow.h \
+    UI/startview.h \
+    UI/tournamentselector.h
 
-FORMS    += mainwindow.ui \
-    startview.ui

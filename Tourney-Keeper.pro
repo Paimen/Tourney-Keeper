@@ -14,10 +14,10 @@ TEMPLATE = app
 
 SOURCES += UI/main.cpp\
     UI/mainwindow.cpp \
-    UI/startview.cpp \
-    UI/tournamentselector.cpp
+    UI/tournamentselector.cpp \
+    UI/tournamentwizard.cpp
 
 HEADERS  += UI/mainwindow.h \
-    UI/startview.h \
-    UI/tournamentselector.h
+    UI/tournamentselector.h \
+    UI/tournamentwizard.h
 

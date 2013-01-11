@@ -3,7 +3,6 @@
 #include <QComboBox>
 
 #include "tournamentselector.h"
-#include "ui_maindialog.h"
 
 TournamentSelector::TournamentSelector(QWidget *parent) :
     QDialog(parent)

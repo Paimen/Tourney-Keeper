@@ -36,3 +36,4 @@ HEADERS  += UI/mainwindow.h \
 RESOURCES += \
     Assets/assets.qrc
 
+DESTDIR = bin

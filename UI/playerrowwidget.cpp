@@ -45,7 +45,7 @@ PlayerRowWidget::PlayerRowWidget(const QString &a_playerName, QWidget *parent) :
         iconLabel->setPixmap(QPixmap("://House_Stark.resized.PNG"));
         break;
         case 4:
-        iconLabel->setPixmap(QPixmap("://House_Lannister.resized.png"));
+        iconLabel->setPixmap(QPixmap("://House_Lannister.resized.PNG"));
         break;
         case 5:
         iconLabel->setPixmap(QPixmap("://House_Targaryen.resized.PNG"));

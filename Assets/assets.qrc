@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>House_Baratheon.PNG</file>
+        <file>House_Lannister.png</file>
+        <file>House_Martell.PNG</file>
+        <file>House_Stark.PNG</file>
+        <file>House_Targaryen.PNG</file>
+        <file>House_Greyjoy.PNG</file>
+        <file>House_Baratheon.resized.PNG</file>
+        <file>House_Greyjoy.resized.PNG</file>
+        <file>House_Lannister.resized.png</file>
+        <file>House_Martell.resized.PNG</file>
+        <file>House_Stark.resized.PNG</file>
+        <file>House_Targaryen.resized.PNG</file>
+    </qresource>
+</RCC>

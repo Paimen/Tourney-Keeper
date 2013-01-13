@@ -28,6 +28,7 @@ TournamentSelector::~TournamentSelector()
 
 void TournamentSelector::newTournamentClicked()
 {
-emit openNewTournament();
-emit accept();
+    emit accept();
+    emit openNewTournament();
+
 }

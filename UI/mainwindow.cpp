@@ -3,6 +3,7 @@
 
 #include "mainwindow.h"
 #include "tournamentselector.h"
+#include "tournamentwizard.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
@@ -30,5 +31,6 @@ void MainWindow::showStartupDialog()
 
 void MainWindow::openTournamentWizard()
 {
-
+    TournamentWizard wizard;
+    wizard.exec();
 }

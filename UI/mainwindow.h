@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 class StartView;
+class TKEngine;
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +28,7 @@ private slots:
 private:
 
     StartView *m_startView;
+    TKEngine *m_engine;
 
 };
 

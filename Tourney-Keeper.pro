@@ -11,6 +11,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Tourney-Keeper
 TEMPLATE = app
 
+INCLUDEPATH += Engine \
+               UI
+
 
 SOURCES += UI/main.cpp\
     UI/mainwindow.cpp \
@@ -21,7 +24,9 @@ SOURCES += UI/main.cpp\
     UI/tournamentsettingspage.cpp \
     UI/hintcombobox.cpp \
     UI/playercreationdialog.cpp \
-    UI/playerrowwidget.cpp
+    UI/playerrowwidget.cpp \
+    Engine/tkengine.cpp \
+    Engine/tktournament.cpp
 
 HEADERS  += UI/mainwindow.h \
     UI/tournamentselector.h \
@@ -31,7 +36,9 @@ HEADERS  += UI/mainwindow.h \
     UI/tournamentsettingspage.h \
     UI/hintcombobox.h \
     UI/playercreationdialog.h \
-    UI/playerrowwidget.h
+    UI/playerrowwidget.h \
+    Engine/tkengine.h \
+    Engine/tktournament.h
 
 RESOURCES += \
     Assets/assets.qrc

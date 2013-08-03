@@ -4,20 +4,24 @@
 #include "mainwindow.h"
 #include "tournamentselector.h"
 #include "tournamentwizard.h"
+#include "tkengine.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
 
 
-
+   m_engine = new TKEngine;
    QTimer::singleShot(0, this, SLOT(showStartupDialog()));
 
 }
 
 MainWindow::~MainWindow()
 {
-
+    if (m_engine) {
+        delete m_engine;
+        m_engine = NULL;
+    }
 }
 
 

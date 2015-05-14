@@ -7,6 +7,10 @@
 
 #include "tkengine.h"
 
+/*!
+ * \brief basic constructor
+ * \param parent
+ */
 TKEngine::TKEngine(QObject *parent) :
     QObject(parent)
 {

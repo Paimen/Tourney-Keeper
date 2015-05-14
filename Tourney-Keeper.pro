@@ -25,8 +25,11 @@ SOURCES += UI/main.cpp\
     UI/hintcombobox.cpp \
     UI/playercreationdialog.cpp \
     UI/playerrowwidget.cpp \
+    UI/tournamentstandigsview.cpp\
     Engine/tkengine.cpp \
-    Engine/tktournament.cpp
+    Engine/tktournament.cpp \
+    UI/tournamenttablesview.cpp \
+    UI/tournamenttablewidget.cpp
 
 HEADERS  += UI/mainwindow.h \
     UI/tournamentselector.h \
@@ -37,8 +40,12 @@ HEADERS  += UI/mainwindow.h \
     UI/hintcombobox.h \
     UI/playercreationdialog.h \
     UI/playerrowwidget.h \
+    UI/tournamentstandigsview.h \
     Engine/tkengine.h \
-    Engine/tktournament.h
+    Engine/tktournament.h \
+    UI/tournamenttablesview.h \
+    UI/tournamenttablewidget.h
+
 
 RESOURCES += \
     Assets/assets.qrc

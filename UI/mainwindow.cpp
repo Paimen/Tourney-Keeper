@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
    m_engine = new TKEngine;
-   QTimer::singleShot(0, this, SLOT(showStartupDialog()));
+   //QTimer::singleShot(0, this, SLOT(showStartupDialog()));
 
 }
 

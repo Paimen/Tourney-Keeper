@@ -21,3 +21,5 @@ Makefile
 
 #Binaries
 bin/
+UI/tournamenttablewidget.cpp.autosave
+*.autosave

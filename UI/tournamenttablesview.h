@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+class QGridLayout;
+
 class TournamentTablesView : public QWidget
 {
     Q_OBJECT
@@ -13,6 +15,14 @@ public:
 signals:
 
 public slots:
+
+private: // functions
+
+private: //member variables
+
+    QGridLayout *m_mainLayout;
+
+
 };
 
 #endif // TOURNAMENTTABLESVIEW_H

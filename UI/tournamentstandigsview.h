@@ -1,18 +1,19 @@
-#ifndef TOURNAMENTTABLEVIEW_H
-#define TOURNAMENTTABLEVIEW_H
+#ifndef TOURNAMENTSTANDINGSVIEW_H
+#define TOURNAMENTSTANDINGSVIEW_H
 
+#include <QDockWidget>
 #include <QWidget>
 
-class TournamentTableView : public QWidget
+class TournamentStandingsView : public QDockWidget
 {
     Q_OBJECT
 public:
-    explicit TournamentTableView(QWidget *parent = 0);
-    ~TournamentTableView();
+    explicit TournamentStandingsView(QWidget *parent = 0);
+    ~TournamentStandingsView();
 
 signals:
 
 public slots:
 };
 
-#endif // TOURNAMENTTABLEVIEW_H
+#endif // TOURNAMENTSTANDINGSVIEW_H

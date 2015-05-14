@@ -1,11 +1,11 @@
-#include "tournamenttableview.h"
+#include "tournamentstandigsview.h"
 
-TournamentTableView::TournamentTableView(QWidget *parent) : QWidget(parent)
+TournamentStandingsView::TournamentStandingsView(QWidget *parent) : QDockWidget(parent)
 {
 
 }
 
-TournamentTableView::~TournamentTableView()
+TournamentStandingsView::~TournamentStandingsView()
 {
 
 }

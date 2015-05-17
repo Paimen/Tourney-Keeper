@@ -56,10 +56,20 @@ void TournamentTableWidget::addPlayersToLayout()
         foreach(Player* player, m_players) {
             if (player->tableId() == m_tableId) {
                 QLabel *label = new QLabel;
-                label->setText(player->name());
+                label->setText(QString("Player %1").arg(player->tablePosition()+1));
+                int playerPosition = player->tablePosition();
                 QComboBox * rowPlayer = new QComboBox;
-                QVariant variant = QVariant::fromValue(player);
-                rowPlayer->addItem(player->name(),variant);
+                int index = 0;
+                foreach (Player* combPlayer, m_players) {
+
+                    QVariant variant = QVariant::fromValue(combPlayer);
+                    rowPlayer->addItem(combPlayer->name(),variant);
+                    if(combPlayer->tableId() == m_tableId && playerPosition == combPlayer->tablePosition()) {
+                        rowPlayer->setCurrentIndex(index);
+                    }
+                    index++;
+                }
+
 
                 m_mainLayout->addWidget(label,player->tablePosition(),0);
                 m_mainLayout->addWidget(rowPlayer,player->tablePosition(),1);

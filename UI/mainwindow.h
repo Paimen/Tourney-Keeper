@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 
-class StartView;
 class TKEngine;
+class TournamentTablesView;
 
 namespace Ui {
 class MainWindow;
@@ -27,8 +27,8 @@ private slots:
 
 private:
 
-    StartView *m_startView;
     TKEngine *m_engine;
+    TournamentTablesView *m_tablesView;
 
 };
 

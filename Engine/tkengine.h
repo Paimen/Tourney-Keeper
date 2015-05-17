@@ -10,15 +10,19 @@ class TKEngine : public QObject
     Q_OBJECT
 public:
     explicit TKEngine(QObject *parent = 0);
+
     
 signals:
     
 public slots:
 
 public:
-QList<TKTournament *> m_tournaments;
-
     
+    TKTournament *currentTournament();
+
+private:
+    QList<TKTournament *> m_tournaments;
+    TKTournament *m_currentTournament;
 };
 
 #endif // TKENGINE_H

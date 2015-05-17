@@ -2,13 +2,16 @@
 #define TOURNAMENTTABLEWIDGET_H
 
 #include <QWidget>
-
+#include <QUuid>
 
 
 class QGridLayout;
 class QPushButton;
+class QLabel;
 
 class Player;
+
+
 
 
 class TournamentTableWidget : public QWidget
@@ -20,19 +23,26 @@ public:
 
 
 
+    QUuid tableId() const;
+    void setTableId(const QUuid &tableId);
+
 signals:
 
 public slots:
-    addPlayer(Player *player);
-    void setPlayers(QList<Player *> &players);
+    void addPlayer(Player *player);
+    void setPlayers(QList<Player *> players);
 
 private: //Functions
-    addPlayersToLayout();
+    void addPlayersToLayout();
 
 
 private: //Member variables
+    QUuid m_tableId;
     QGridLayout *m_mainLayout;
     QList<Player *> m_players;
+    QPushButton *m_ready;
+    QPushButton *m_modify;
+
 
 };
 

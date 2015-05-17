@@ -11,6 +11,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Tourney-Keeper
 TEMPLATE = app
 
+#for random
+CONFIG += c++11
+
 INCLUDEPATH += Engine \
                UI
 

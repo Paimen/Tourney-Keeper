@@ -5,14 +5,17 @@
 #include "tournamentselector.h"
 #include "tournamentwizard.h"
 #include "tkengine.h"
+#include "tournamenttablesview.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
 
-
    m_engine = new TKEngine;
+   m_tablesView = new TournamentTablesView(m_engine->currentTournament());
+
    //QTimer::singleShot(0, this, SLOT(showStartupDialog()));
+   setCentralWidget(m_tablesView);
 
 }
 

@@ -2,19 +2,21 @@
 #define TOURNAMENTTABLEWIDGET_H
 
 #include <QWidget>
+#include <QGroupBox>
 #include <QUuid>
 
 
 class QGridLayout;
 class QPushButton;
 class QLabel;
+class QComboBox;
 
 class Player;
 
 
 
 
-class TournamentTableWidget : public QWidget
+class TournamentTableWidget : public QGroupBox
 {
     Q_OBJECT
 public:
@@ -25,6 +27,9 @@ public:
 
     QUuid tableId() const;
     void setTableId(const QUuid &tableId);
+
+    int tablePosition() const;
+    void setTablePosition(int tablePosition);
 
 signals:
 
@@ -42,7 +47,8 @@ private: //Member variables
     QList<Player *> m_players;
     QPushButton *m_ready;
     QPushButton *m_modify;
-
+    QList<QComboBox*> m_playerRows;
+    int m_tablePosition;
 
 };
 

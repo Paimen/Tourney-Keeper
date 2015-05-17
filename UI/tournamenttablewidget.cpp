@@ -1,14 +1,17 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QComboBox>
 
 #include "tournamenttablewidget.h"
 #include "player.h"
 
 
 
-TournamentTableWidget::TournamentTableWidget(QWidget *parent) : QWidget(parent), m_mainLayout(new QGridLayout)
+TournamentTableWidget::TournamentTableWidget(QWidget *parent) : QGroupBox(parent),
+    m_mainLayout(new QGridLayout), m_tablePosition(0)
 {
+
     m_ready = new QPushButton;
     m_ready->setText(tr("Confirm"));
     m_mainLayout->addWidget(m_ready,0,2);
@@ -54,11 +57,27 @@ void TournamentTableWidget::addPlayersToLayout()
             if (player->tableId() == m_tableId) {
                 QLabel *label = new QLabel;
                 label->setText(player->name());
+                QComboBox * rowPlayer = new QComboBox;
+                QVariant variant = QVariant::fromValue(player);
+                rowPlayer->addItem(player->name(),variant);
+
                 m_mainLayout->addWidget(label,player->tablePosition(),0);
+                m_mainLayout->addWidget(rowPlayer,player->tablePosition(),1);
             }
         }
     }
 }
+int TournamentTableWidget::tablePosition() const
+{
+    return m_tablePosition;
+}
+
+void TournamentTableWidget::setTablePosition(int tablePosition)
+{
+    m_tablePosition = tablePosition;
+    setTitle(QString("Table %1").arg(tablePosition));
+}
+
 QUuid TournamentTableWidget::tableId() const
 {
     return m_tableId;

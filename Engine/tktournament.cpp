@@ -42,12 +42,14 @@ bool TKTournament::generateRandomRound()
     //Create Mersenne twister engine, with random seed.
     std::mt19937 urng( qrand());
     //Shuffle the player list
-    std::shuffle(m_tournamentPlayers.begin(),m_tournamentPlayers.end(),urng);
-
+    QList<Player*> roundPlayers = m_tournamentPlayers;
+    std::shuffle(roundPlayers.begin(),roundPlayers.end(),urng);
+    qDebug() << roundPlayers;
+    qDebug() << m_tournamentPlayers;
     //assign table id's for player
     int divider =  0;
     QUuid tableId;
-    foreach (Player* player, m_tournamentPlayers) {
+    foreach (Player* player, roundPlayers) {
 
         if ( divider == 0 ) {
 

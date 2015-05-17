@@ -25,13 +25,14 @@ TournamentTablesView::TournamentTablesView(TKTournament *tournament, QWidget *pa
     QWidget(parent), m_mainLayout(new QGridLayout), m_tournament(tournament)
 {
     TournamentTableWidget *table;
-    int row;
+    int row=0;
     foreach (QUuid id, m_tournament->activeTables()) {
         table = new TournamentTableWidget;
         table->setTableId(id);
         table->setPlayers(m_tournament->tournamentPlayers());
         m_mainLayout->addWidget(table,row,0);
         row++;
+        table->setTablePosition(row);
     }
 
 

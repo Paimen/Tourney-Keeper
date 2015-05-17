@@ -2,6 +2,8 @@
 #define PLAYER_H
 
 #include <QObject>
+
+#include <QMetaType>
 #include <QUuid>
 
 class Player : public QObject
@@ -42,5 +44,7 @@ private:
     int m_tablePosition;
     QUuid m_tableId;
 };
+
+Q_DECLARE_METATYPE(Player*)
 
 #endif // PLAYER_H

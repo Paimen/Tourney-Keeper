@@ -7,6 +7,7 @@
 
 
 class QGridLayout;
+class QVBoxLayout;
 class QPushButton;
 class QLabel;
 class QComboBox;
@@ -43,7 +44,7 @@ private: //Functions
 
 private: //Member variables
     QUuid m_tableId;
-    QGridLayout *m_mainLayout;
+    QVBoxLayout *m_mainLayout;
     QList<Player *> m_players;
     QPushButton *m_ready;
     QPushButton *m_modify;

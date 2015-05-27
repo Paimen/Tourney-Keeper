@@ -33,7 +33,8 @@ SOURCES += UI/main.cpp\
     Engine/tktournament.cpp \
     UI/tournamenttablesview.cpp \
     UI/tournamenttablewidget.cpp \
-    Engine/player.cpp
+    Engine/player.cpp \
+    UI/tournamenttablerowwidget.cpp
 
 HEADERS  += UI/mainwindow.h \
     UI/tournamentselector.h \
@@ -49,7 +50,8 @@ HEADERS  += UI/mainwindow.h \
     Engine/tktournament.h \
     UI/tournamenttablesview.h \
     UI/tournamenttablewidget.h \
-    Engine/player.h
+    Engine/player.h \
+    UI/tournamenttablerowwidget.h
 
 
 RESOURCES += \

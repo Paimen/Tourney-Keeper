@@ -1,24 +1,31 @@
 #include <QGridLayout>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QPushButton>
 #include <QLabel>
 #include <QComboBox>
 
 #include "tournamenttablewidget.h"
+#include "tournamenttablerowwidget.h"
 #include "player.h"
 
+#include <QDebug>
 
 
 TournamentTableWidget::TournamentTableWidget(QWidget *parent) : QGroupBox(parent),
-    m_mainLayout(new QGridLayout), m_tablePosition(0)
+    m_mainLayout(new QVBoxLayout), m_tablePosition(0)
 {
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
+
 
     m_ready = new QPushButton;
     m_ready->setText(tr("Confirm"));
-    m_mainLayout->addWidget(m_ready,0,2);
+    buttonLayout->addWidget(m_ready);
 
     m_modify = new QPushButton;
     m_modify->setText(tr("Modify"));
-    m_mainLayout->addWidget(m_modify,1,2);
+    buttonLayout->addWidget(m_modify);
+    m_mainLayout->addLayout(buttonLayout);
     setLayout(m_mainLayout);
 }
 
@@ -55,7 +62,11 @@ void TournamentTableWidget::addPlayersToLayout()
     if(m_players.count() > 0) {
         foreach(Player* player, m_players) {
             if (player->tableId() == m_tableId) {
-                QLabel *label = new QLabel;
+                TournamentTableRowWidget *row = new TournamentTableRowWidget;
+                row->setPlayer(player);
+                m_mainLayout->insertWidget(player->tablePosition(),row);
+                qDebug() << "Player row: " << player->tablePosition();
+                /*QLabel *label = new QLabel;
                 label->setText(QString("Player %1").arg(player->tablePosition()+1));
                 int playerPosition = player->tablePosition();
                 QComboBox * rowPlayer = new QComboBox;
@@ -72,7 +83,7 @@ void TournamentTableWidget::addPlayersToLayout()
 
 
                 m_mainLayout->addWidget(label,player->tablePosition(),0);
-                m_mainLayout->addWidget(rowPlayer,player->tablePosition(),1);
+                m_mainLayout->addWidget(rowPlayer,player->tablePosition(),1);*/
             }
         }
     }

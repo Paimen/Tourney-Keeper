@@ -25,17 +25,15 @@ TKEngine::TKEngine(QObject *parent) :
     m_currentTournament = new TKTournament;
     Player *test;
     QList<Player *> players;
+    QStringList playerNames;
+    playerNames << "Jukka" << "Heikki" << "Jeppe" << "Matti" << "Santtu" << "Riina"  << "Emmi" << "Ansa" << "Tapani" << "Katri";
     for(int i = 0 ; i< 10 ; i++) {
         test = new Player;
-        QString name(QString("Test %1").arg(i));
-        test->setName(name);
+        test->setName(playerNames.at(i));
         players.append(test);
     }
     m_currentTournament->setTournamentPlayers(players);
     m_currentTournament->generateRound(true);
-
-
-
 
 
 }

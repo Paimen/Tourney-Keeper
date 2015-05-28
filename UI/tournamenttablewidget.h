@@ -38,6 +38,12 @@ public slots:
     void addPlayer(Player *player);
     void setPlayers(QList<Player *> players);
 
+protected:
+    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
+    void dragMoveEvent(QDragMoveEvent *event) Q_DECL_OVERRIDE;
+    void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+
 private: //Functions
     void addPlayersToLayout();
 

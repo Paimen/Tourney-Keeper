@@ -5,6 +5,13 @@
 #include <QLabel>
 #include <QComboBox>
 
+//For drag functionality
+#include <QMouseEvent>
+#include <QDrag>
+#include <QMimeData>
+#include <QPixmap>
+
+
 #include "tournamenttablewidget.h"
 #include "tournamenttablerowwidget.h"
 #include "player.h"
@@ -25,8 +32,9 @@ TournamentTableWidget::TournamentTableWidget(QWidget *parent) : QGroupBox(parent
     m_modify = new QPushButton;
     m_modify->setText(tr("Modify"));
     buttonLayout->addWidget(m_modify);
-    m_mainLayout->addLayout(buttonLayout);
+    //m_mainLayout->addLayout(buttonLayout);
     setLayout(m_mainLayout);
+    setAcceptDrops(true);
 }
 
 TournamentTableWidget::~TournamentTableWidget()
@@ -51,6 +59,115 @@ void TournamentTableWidget::setPlayers(QList<Player *> players)
 {
     m_players = players;
     addPlayersToLayout();
+}
+
+
+
+void TournamentTableWidget::dragEnterEvent(QDragEnterEvent *event)
+{
+
+    if (event->mimeData()->hasFormat("application/tk-playerRow")) {
+        if (children().contains(event->source())) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+
+    } else {
+        event->ignore();
+    }
+}
+
+void TournamentTableWidget::dragMoveEvent(QDragMoveEvent *event)
+{
+    if (event->mimeData()->hasFormat("application/tk-playerRow")) {
+        if (children().contains(event->source())) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
+}
+
+void TournamentTableWidget::dropEvent(QDropEvent *event)
+{
+    if (event->mimeData()->hasFormat("application/tk-playerRow")) {
+        const QMimeData *mime = event->mimeData();
+
+        QByteArray itemData = mime->data("application/tk-playerRow");
+        QDataStream dataStream(&itemData, QIODevice::ReadOnly);
+
+        QString playerName;
+        QPoint offset;
+        dataStream >> playerName >> offset;
+        TournamentTableRowWidget *newRow = new TournamentTableRowWidget();
+        ///\todo seriously dangerous test code
+        foreach (Player *player, m_players) {
+            if(player->name() == playerName) {
+                newRow->setPlayer(player);
+            }
+        }
+
+        m_mainLayout->addWidget(newRow);
+
+
+        if (event->source() == this) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+
+    }  else {
+        event->ignore();
+    }
+}
+
+void TournamentTableWidget::mousePressEvent(QMouseEvent *event)
+{
+    //we cast widget from position to Row Widget return if it fails
+    QWidget *widget = childAt(event->pos());
+    TournamentTableRowWidget *child = NULL;
+    do {
+        child = qobject_cast<TournamentTableRowWidget*>(widget);
+        if(widget) {
+            widget = widget->parentWidget();
+        }
+    } while (child == NULL && widget != NULL);
+
+    if (child == NULL) {
+        return;
+    }
+
+    // Gather data from widget
+    QPoint hotSpot = event->pos() - child->pos();
+
+    QByteArray itemData;
+    QDataStream dataStream(&itemData, QIODevice::WriteOnly);
+    dataStream << child->player()->name() << QPoint(hotSpot);
+
+
+    QMimeData *mimeData = new QMimeData;
+    mimeData->setData("application/tk-playerRow", itemData);
+
+
+    QDrag *drag = new QDrag(this);
+    drag->setMimeData(mimeData);
+    QPixmap pixmap(child->size());
+    child->render(&pixmap, QPoint());
+    drag->setPixmap(pixmap);
+
+    child->hide();
+
+    int action = drag->exec(Qt::CopyAction, Qt::CopyAction);
+    if (action == Qt::CopyAction)
+        m_mainLayout->removeWidget(child);
+    else
+        child->show();
 }
 
 

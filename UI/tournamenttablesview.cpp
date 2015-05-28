@@ -35,7 +35,6 @@ TournamentTablesView::TournamentTablesView(TKTournament *tournament, QWidget *pa
         table->setTablePosition(row);
     }
 
-
     setLayout(m_mainLayout);
 }
 

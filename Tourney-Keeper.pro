@@ -34,7 +34,8 @@ SOURCES += UI/main.cpp\
     UI/tournamenttablesview.cpp \
     UI/tournamenttablewidget.cpp \
     Engine/player.cpp \
-    UI/tournamenttablerowwidget.cpp
+    UI/tournamenttablerowwidget.cpp \
+    UI/tournamenttimer.cpp
 
 HEADERS  += UI/mainwindow.h \
     UI/tournamentselector.h \
@@ -51,7 +52,8 @@ HEADERS  += UI/mainwindow.h \
     UI/tournamenttablesview.h \
     UI/tournamenttablewidget.h \
     Engine/player.h \
-    UI/tournamenttablerowwidget.h
+    UI/tournamenttablerowwidget.h \
+    UI/tournamenttimer.h
 
 
 RESOURCES += \

@@ -5,6 +5,8 @@
 
 class TKEngine;
 class TournamentTablesView;
+class TournamentStandingsView;
+class TournamentTimer;
 
 namespace Ui {
 class MainWindow;
@@ -28,7 +30,10 @@ private slots:
 private:
 
     TKEngine *m_engine;
-    TournamentTablesView *m_tablesView;
+
+    TournamentStandingsView *m_tournamentStandigsView;
+    TournamentTimer *m_timerView;
+    QTabWidget *m_viewStack;
 
 };
 
